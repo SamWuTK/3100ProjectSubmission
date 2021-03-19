@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Let's start working</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+
+<body>
+<nav>
+    <ul>
+        <li><a class="active" href="Mainpage.html"><i class="fa fa-fw fa-envelope"></i> Post </a></li>
+        <li><a href="UserProfile.html"><i class="fa fa-fw fa-user"></i>Profile </a></li>
+        <li style="float:right"><a href="LogOut.html"> Log out </a></li>
+        <li style="float:right"><a href="NewPost.html"> New Post</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <h1 style="margin-left: 50px">Administrator </h1>
+    <ul id="forums-list-1" class="forums">
+        <li class="forum-header">
+            <ul class="title-bar">
+                <li class="forum-topic">Topic</li>
+                <li class="forum-creator">Created by</li>
+                <li class="forum-reply">Reply</li>
+                <li class="forum-like">Likes</li>
+            </ul>
+        </li>
+        <li class="forum-body">
+            <ul id="post-01" class="thread">
+                <li class="post-topic"><a class="link" href=Post.html">Blah Blah Blah ... </a></li>
+                <li class="post-freshness">--</li>
+                <li class="post-reply">0</li>
+                <li class="post-like">0</li>
+                <div class="dislikes">
+                    <button id="reject">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="approve">
+                    <button id="approve">
+                        <i class="fa fa-check"></i>
+                    </button>
+                </div>
+
+            </ul>
+        </li>
+        <li class="forum-footer">
+            <a href="#1" class="page-numbers">1</a>
+
+        </li>
+    </ul>
+
+</main>
+
+</body>
+</html>
