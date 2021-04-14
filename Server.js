@@ -30,7 +30,7 @@ connection.connect((err) => {
 })
 
 app.get("/", function(req, res) {
-    res.sendfile(__dirname + '/index.html', function(err) {
+    res.sendfile(__dirname + '/NewPost.html', function(err) {
         if (err) res.send(404);
     }); 
 });
@@ -80,6 +80,10 @@ app.set('view engine', 'ejs');
         }        
     }); 
  });  
+
+ app.get('/test3/:name', function (req, res) {
+res.download(req.params.name);
+})
 
 app.get('/show/:id', function (req, res) {
     // by id
@@ -140,7 +144,7 @@ app.get('/test2', function (req, res) {
    res.sendFile( __dirname + "/" + "HTMLPage2.html" );
 })
  
-app.post('/file_upload', function (req, res) {
+app.post('/file_upload', urlencodedParser, function (req, res) {
  
    console.log(req.files[0]);  // 上传的文件信息
  
@@ -151,15 +155,30 @@ app.post('/file_upload', function (req, res) {
               console.log( err );
          }else{
                response = {
-                   message:'File uploaded successfully', 
-                   filename:req.files[0].originalname
+                   message:'File uploaded successfully',
+                   "testid":req.body.testid,
+                   "filename":req.files[0].originalname
               };
           }
+    connection.query('UPDATE tabletest SET filename = ? WHERE testid = ?', [response.filename, response.testid], function (error, results, fields) {
+        if (error) throw error;
+        return console.log({ error: false, data: results, message: 'id update.' });
+    });
           console.log( response );
           res.end( JSON.stringify( response ) );
        });
    });
 })
+
+//open file
+const openExplorer = require('open-file-explorer');
+
+app.get('/test3', function (req, res) {
+//$.ajax('C:\Users\User\Desktop\testfile\download.png')
+res.download("download.png");
+//res.send('<a href="FTP:///C:\Users\User\Desktop\testfile\download.png">Link 1</a>');
+})
+
 
 // 修改
 
