@@ -2,14 +2,18 @@
  <html>  
  <head>  
   <meta charset="utf-8">  
-  <title>實作EJS</title>  
+  <title>db show all</title>  
  </head>  
  <body>  
- <h1>title</h1>  
- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quod, praesentium dolor velit culpa cupiditate odio nihil voluptates aliquid eum dolore eligendi quas nobis nam nesciunt odit pariatur minus cum.</p>  
+ <h1>All post</h1>  
+ <p>loyalty pt will be automatically remove when pressed download</p>  
  <ul>  
  <% for(var i=0; i<data.length; i++) {%>  
-  <li><%= data[i].testid + data[i].thing %></li>  
+  <li><%= data[i].testid +" "+ data[i].thing +" "+ data[i].filename %> </li> 
+  <form action=<%='/test3/'+data[i].filename%> method="get">
+            <li><button style=" color: black; border: none;background-color: Transparent; padding: 12px 45px;" class="active"><i class="fa fa-fw fa-envelope"></i>^download <%=data[i].filename%></button></li>
+        </form>
+
  <% } %>  
  </ul>  
  </body>  
